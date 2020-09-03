@@ -1,0 +1,11 @@
+<data>
+    <event>
+        <last>0</last>
+        <year>2020</year>
+        <month>9</month>
+        <day>1</day>
+        <name>Prounciation Practice </name>
+        <description>Watch the lessons from standford (cs231n) and read</description></event>
+    <event><last>0</last><year>2020</year><month>9</month><day>1</day><name>Watch a presentation</name><description>Watch a talk related to the state of the art</description></event>
+    <event><last>0</last><year>2020</year><month>9</month><day>1</day><name>Read a paper</name><description>Read a paper every week</description></event>
+    <event><last>0</last><year>2020</year><month>9</month><day>1</day><name>Read book</name><description>Read the book related to machine learning every day.</description></event></data>

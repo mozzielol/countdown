@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- The Add Section -->
+  <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
+    <h2 class="w3-wide w3-center">Task is Coming</h2>
+    <p class="w3-opacity w3-center"><i>Take it down and work on it!</i></p>
+      <div class="w3-center m6">
+        <form action="/add_task" method="POST">
+          <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+            <div class="w3-half">
+              <input class="w3-input w3-border" type="text" placeholder="Task Name" required name="name">
+            </div>
+            <div class="w3-half">
+              <input class="w3-input w3-border" type="text" placeholder="Deadline (Year-Month-Day)" required name="Date">
+            </div>
+          </div>
+          <input class="w3-input w3-border" type="text" placeholder="Description" required name="description">
+          <button class="w3-button w3-black w3-section w3-center" type="submit">Add</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

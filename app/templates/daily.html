@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="countdown">
+    <h2 class="w3-wide">Daily Work</h2>
+    <p class="w3-opacity"><i>Do it everyday!!!</i></p>
+    <p class="w3-justify"></p>
+    <div class="w3-row w3-padding-32 w3-stretch">
+        {% for ddl in deadlines %}
+      <div class="w3-third">
+          {% if ddl.remains - ddl.last > 21 %}
+          <p>{{ ddl.name }} <b style="color:red;">({{ ddl.last }} / {{ ddl.remains }} )</b> </p>
+          {% elif ddl.remains - ddl.last > 7 %}
+          <p>{{ ddl.name }} <b style="color:blue;">({{ ddl.last }} / {{ ddl.remains }} )</b> </p>
+          {% else %}
+          <p>{{ ddl.name }} <b style="color:green;">({{ ddl.last }} / {{ ddl.remains }})</b> </p>
+          {% endif %}
+          <p class="w3-opacity"><i><b>{{ ddl.year }}. {{ ddl.month }}. {{ ddl.day  }} </b></i></p>
+          <p class="w3-round w3-margin-bottom " style="height:50px">{{ ddl.description }} </p>
+          <a href="{{ url_for('achieve_daily_action', ddl_name=ddl.name) }}" class="w3-button w3-teal w3-padding-small w3-margin-right w3-round-large" type="submit">Achieve</a>
+          <a href="{{ url_for('undo_daily_action', ddl_name=ddl.name) }}" class="w3-button w3-red w3-padding-small w3-margin-right w3-round-large" type="submit">Undo</a>
+          <a href="{{ url_for('milestone_daily_action', ddl_name=ddl.name) }}" class="w3-button w3-blue w3-padding-small w3-round-large" type="submit">Milestone</a>
+      </div>
+        {% endfor %}
+    </div>
+  </div>
+  <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
+    <h2 class="w3-wide w3-center">Add a new daily task</h2>
+    <p class="w3-opacity w3-center"><i>Take it down and work on it!</i></p>
+      <div class="w3-center m6">
+        <form action="/add_daily_task" method="POST">
+          <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+            <div class="w3-half">
+              <input class="w3-input w3-border" type="text" placeholder="Task Name" required name="name">
+            </div>
+            <div class="w3-half">
+              <input class="w3-input w3-border" type="text" placeholder="Start Date (Year-Month-Day)" required name="Date">
+            </div>
+          </div>
+          <input class="w3-input w3-border" type="text" placeholder="Description" required name="description">
+          <button class="w3-button w3-black w3-section w3-center" type="submit">Add</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
